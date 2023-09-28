@@ -1,0 +1,5 @@
+rootProject.name = 'PhraseFinder'
+include 'word-service'
+include 'elastic-service'
+include 'ConfigServer'
+

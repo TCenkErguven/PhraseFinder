@@ -1,0 +1,27 @@
+server:
+  port: 9090
+
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: 1234
+    url: jdbc:postgresql://localhost:5332/phraseDB
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: java7
+    password: root
+
+rabbitmq:
+  exchange: direct-exchange
+  saveQueue: save-phrase-queue
+  saveKey: save-phrase-key

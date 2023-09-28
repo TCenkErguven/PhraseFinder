@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.frame {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10vh;
+  font-size: 1.75rem;
+  font-weight: bolder;
+  background-color: #ccc8aa;
+}
+
+.background {
+  height: 90vh;
+  background-color: #f1efef;
+}
+
+.contentCard {
+  margin-top: 5%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.contentCard > p {
+  font-size: 1.75rem;
+  margin-bottom: 3%;
+}

@@ -1,0 +1,14 @@
+server:
+  port: 9085
+
+spring:
+  elasticsearch:
+    uris: http://localhost:9200
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: java7
+    password: root
+
+rabbitmq:
+  saveQueue: save-phrase-queue

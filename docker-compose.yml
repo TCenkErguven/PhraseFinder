@@ -1,0 +1,44 @@
+version: '3.1'  # Docker Compose sürümü
+
+
+
+services:
+  db:
+    container_name: postgres
+    image: postgres
+    restart: always
+    ports:
+      - "5332:5432"
+    environment:
+      POSTGRES_USERNAME: postgres
+      POSTGRES_PASSWORD: 1234
+      PGDATA: /data/postgres
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: java7
+      RABBITMQ_DEFAULT_PASS: root  # RabbitMQ kullanıcı adı ve şifre
+    ports:
+      - "5672:5672"  # RabbitMQ ana bağlantı noktası
+      - "15672:15672"  # RabbitMQ yönetici arayüzü için port
+
+
+  elasticsearch:
+    image: elasticsearch:7.17.12
+    container_name: java_elastic
+    environment:
+      - xpack.security.enabled=false
+      - discovery.type=single-node
+    ports:
+      - 9200:9200  # Elasticsearch HTTP bağlantı noktası
+      - 9300:9300  # Elasticsearch iletişim bağlantı noktası
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 512M
+        reservations:
+          cpus: "0.25"
+          memory: 256M  # Elasticsearch kaynak sınırları
