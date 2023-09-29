@@ -76,6 +76,10 @@ public class PhraseService extends ServiceManager<Phrase,Integer> {
         throw new WordServiceException(ErrorType.PHRASE_ALREADY_EXIST);
     }
 
+    public Long countPhrasesBy(){
+        return phraseRepository.countPhrasesBy();
+    }
+
 
 
 

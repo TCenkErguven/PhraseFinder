@@ -100,14 +100,15 @@ public class Runner {
                                 .authorSurname("Süreyya")
                         .build()
         );
-
-        phraseList.stream().forEach(phrase -> {
-            try {
-                phraseService.savePhrase(phrase);
-            }catch (RuntimeException e){
-                e.printStackTrace();
-            }
-        });
+        if(phraseService.countPhrasesBy()==0) {
+            phraseList.stream().forEach(phrase -> {
+                try {
+                    phraseService.savePhrase(phrase);
+                } catch (RuntimeException e) {
+                    e.printStackTrace();
+                }
+            });
+        }
 
     }
 }
